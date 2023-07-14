@@ -1,25 +1,22 @@
+```python
 import json
 
-def most_spoken_languages(filename, n):
+def most_spoken_languages(filename , n):
     with open(filename, 'r') as file:
         data = json.load(file)
 
-    languages = {}
+    puplation = []
     for country in data:
-        if "languages" in country:
-            for language in country["languages"]:
-                if language in languages:
-                    languages[language] += 1
-                else:
-                    languages[language] = 1
+        puplation.append(dict(country=country["name"] , pupulation=country["population"]))
 
-    sorted_languages = sorted(languages.items(), key=lambda x: x[1], reverse=True)
-    return sorted_languages[:n]
-
+    sorted_countries = sorted(puplation, key=lambda x: x['pupulation'], reverse=True)
+    
+    return sorted_countries[:n]
 
 filename = 'C:/Users/bidmajnoon/Downloads/countries-data.py'
 top_languages = most_spoken_languages(filename, 10)
 print(top_languages)
+```
 
 
 
