@@ -15,4 +15,8 @@ def bynary_serch(arry, x):
             high = mid - 1
     return -1
 
-print(bynary_serch(arry,x))    
+result = bynary_serch(arry,x) 
+if result ==-1:
+    print('the number not in list')
+else:
+    print(f'number in list index:{bynary_serch (arry, x)}')  
